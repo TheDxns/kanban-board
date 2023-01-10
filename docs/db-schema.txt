@@ -1,0 +1,43 @@
+@startuml
+class User {
+	+ id: string
+	+ name: string
+	+ password: string
+	+ role: enum
+	+ groupId: string
+}
+
+class UserGroup {
+	+ id: string
+	+ name: string
+}
+
+class Issue {
+	+ id: string
+	+ authorId: string
+	+ asigneeId: string
+	+ title: string
+	+ type: enum
+	+ status: enum
+	+ priority: number
+	+ description: string
+	+ parentId: string
+	+ createdAt: string
+	+ updatedAt: string
+}
+
+class Comment {
+	+ id: string
+	+ authorId: string
+	+ text: string
+	+ issueId: string
+	+ createdAt: string
+}
+
+Comment --> Issue
+
+User --> Issue
+
+UserGroup --> User
+
+@enduml
